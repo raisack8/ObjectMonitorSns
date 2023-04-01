@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mx-14 text-2xl font-bold">新規登録</h1>
+<hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+<form method="post">
+  {% csrf_token %}
+  <div class="py-2">
+    <p>ユーザー名</p>
+    <input name="username" class="border border-slate-500 rounded">
+    {% if form.errors.username %}
+      <div class="text-red-500">{{ form.errors.username }}</div>
+    {% endif %}
+  </div>
+  <div class="py-2">
+    <p>パスワード</p>
+    <input type="password" name="password1" class="border border-slate-500 rounded">
+    {% if form.errors.password1 %}
+      <div class="text-red-500">{{ form.errors.password1 }}</div>
+    {% endif %}
+  </div>
+  <div class="py-2">
+    <p>パスワード確認用</p>
+    <input type="password" name="password2" class="border border-slate-500 rounded">
+    {% if form.errors.password2 %}
+      <div class="text-red-500">{{ form.errors.password2 }}</div>
+    {% endif %}
+  </div>
+  <br><button
+  type="submit"
+  class="p-1 px-4 font-bold bg-amber-500 rounded">ログイン</button>
+</form>
+{% endblock content %}

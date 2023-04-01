@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-left mx-14 text-2xl font-bold">ログイン</h1>
+<hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+<form method="post">
+  {% csrf_token %}
+  <div class="py-2">
+    <p>ユーザー名</p>
+    <input name="username" class="border border-slate-500 rounded">
+  </div>
+  <div class="py-2">
+    <p>パスワード</p>
+    <input type="password" name="password" class="border border-slate-500 rounded">
+  </div>
+  <br><button
+  type="submit"
+  class="p-1 px-4 font-bold bg-amber-500 rounded">ログイン</button>
+</form>
+{% endblock content %}

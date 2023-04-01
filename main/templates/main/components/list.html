@@ -1,0 +1,20 @@
+{% for article in object_list %}
+  {% if not article.category == "news" %}
+  <a href="{% url 'detail_article' article.pk %}">
+    <div class="border border-slate-700 p-4 m-4 rounded bg-white hover:opacity-70">
+      <div class="text-left font-bold text-xl">
+      {{ article.title }}
+      </div>
+      <p class="text-xs text-left">{{ article.create_date }}</p>
+      <hr class="w-full bg-slate-700 border-1 ">
+      <p class="text-sm text-left">{{ article.content | truncatechars:100 }}</p>
+      <div class="flex flex-row-reverse text-sm">
+        <p class="px-2">カテゴリ：{{ article.category }}</p>
+        <p class="px-2">アクセス数：{{ article.access_count }}</p>
+        <p class="px-2">投稿者：{{ article.user.username }}</p>
+        <p class="px-2">記事ID : {{ article.id }}</p>
+      </div>
+    </div>
+  </a>
+  {% endif %}
+{% endfor %}

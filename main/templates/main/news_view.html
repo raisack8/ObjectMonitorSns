@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mx-14 text-2xl font-bold">お知らせ一覧</h1>
+<hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+<div>
+{% include 'main/components/news.html' %}
+</div>
+  <!-- 本当のこと言うと投稿の前にプレビュー画面を挿入したい -->
+{% endblock content %}

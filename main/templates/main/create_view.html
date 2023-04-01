@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mx-14 text-2xl font-bold">新規投稿</h1>
+<hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+<form method="post">
+  {% csrf_token %}
+  <div class="py-2">
+    <p>タイトル</p>
+    <input name="title" class="border border-slate-500 rounded">
+  </div>
+  <div class="py-2">
+    <p>本文</p>
+    <textarea
+      name="content"
+      class="border border-slate-500 rounded"
+      cols="30" rows="10">
+    </textarea>
+  </div>
+  <div class="py-2">
+    <select name="category" id="" class="w-1/5">
+    {% for item in category %}
+      <option value="{{ item.0 }}">{{ item.1 }}</option>
+    {% endfor %}
+    </select>
+  </div>
+  <input type="hidden" name="user" value="{{ request.user.id }}">
+  {% if form.errors %}
+    <div class="text-red-500">{{form.errors}} </div>
+    <div class="text-red-500">{{request.user.id }} </div>
+  {% endif %}
+  <br><button
+    type="submit"
+    class="p-1 px-4 font-bold bg-amber-500 rounded">投稿</button>
+  <!-- 本当のこと言うと投稿の前にプレビュー画面を挿入したい -->
+</form>
+{% endblock content %}

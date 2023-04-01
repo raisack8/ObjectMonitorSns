@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mx-14 text-2xl font-bold">記事ページ</h1>
+<hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+<div>
+  {% if object.thumbnail %}
+    {{ object.thumbnail }}
+  {% endif %}
+  <div class="py-2">
+    <p class="m-1 p-1 text-xl font-bold bg-white">タイトル</p>
+    <p>{{ object.title }}</p>
+  </div>
+  <div class="py-2">
+    <p class="m-1 p-1 text-xl font-bold bg-white">カテゴリ</p>
+    <p>{{ object.category }}</p>
+  </div>
+  <div class="py-2">
+    <p class="m-1 p-1 text-xl font-bold bg-white">本文</p>
+    <p>{{ object.content }}</p>
+  </div>
+  <div class="py-2">
+    <p class="m-1 p-1 text-xl font-bold bg-white">作成日付</p>
+    <p>{{ object.create_date }}</p>
+  </div>
+  <div class="py-2">
+    <p class="m-1 p-1 text-xl font-bold bg-white">アクセス数</p>
+    <p>{{ object.access_count }}</p>
+  </div>
+  <div class="py-2">
+    <p class="m-1 p-1 text-xl font-bold bg-white">投稿者</p>
+    <p>{{ object.user }}</p>
+  </div>
+</div>
+  <!-- 本当のこと言うと投稿の前にプレビュー画面を挿入したい -->
+{% endblock content %}

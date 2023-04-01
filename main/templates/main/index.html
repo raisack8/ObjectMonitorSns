@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="grid grid-rows-2 grid-flow-col gap-4">
+  <div class="2xl:row-span-4 2xl:col-span-5 grid grid-rows-2 grid-flow-col">
+    <!-- 映像ブロック -->
+    <div class=" grid grid-rows-2 grid-flow-col">
+      <div class="lg:row-span-full lg:col-span-4 border border-slate-700 border-1">
+        映像ブロック
+      </div>
+      <!-- チャットブロック -->
+      <div class="lg:row-span-full lg:col-span-1 border border-slate-700 border-1">
+        {% include 'main/components/chat.html' %}
+      </div>
+    </div>
+    <div class="2xl:row-span-1 2xl:col-span-1">
+      <!-- お知らせブロック -->
+      <div class="flex justify-center">
+        <h2 class="mx-14 text-2xl font-bold">
+          News
+        </h2>
+        {% if request.user.is_superuser %}
+          <a href="{% url 'create_article' %}"
+          class="h-1/2 mt-1 p-1 px-3 text-xs text-right font-bold border bg-amber-500 rounded hover:bg-amber-600">
+            新規投稿
+          </a>
+        {% endif %}
+      </div>
+      <hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+      {% include 'main/components/news.html' %}
+      <!-- 記事ブロック -->
+      <div class="flex justify-center">
+        <h2 class="mx-14 text-2xl font-bold">
+          Article
+        </h2>
+        {% if request.user.is_superuser %}
+          <a href="{% url 'create_article' %}"
+          class="h-1/2 mt-1 p-1 px-3 text-xs font-bold border bg-amber-500 rounded hover:bg-amber-600">
+            新規投稿
+          </a>
+        {% endif %}
+      </div>
+      <hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+      {% include 'main/components/list.html' %}
+      <!-- その他コンテンツブロック -->
+      <h2 class="mx-14 text-2xl font-bold">
+        Tweet
+      </h2>
+      <hr class="w-full h-1 mx-auto mb-4 bg-slate-700 border-0 rounded">
+    </div>
+  </div>
+  <!-- サイドバーブロック -->
+  <div class="hidden 2xl:inline-block 2xl:row-span-full 2xl:col-span-1 border border-slate-700 border-1">
+    03
+  </div>
+</div>
+{% endblock content %}
